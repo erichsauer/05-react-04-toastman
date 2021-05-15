@@ -1,6 +1,5 @@
-import { response } from 'msw';
 import React, { Component } from 'react';
-import { Controls } from '../components/Controls';
+import Controls from '../components/Controls';
 import Header from '../components/Header';
 import HistoryList from '../components/HistoryList';
 import Response from '../components/Response';

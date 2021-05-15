@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HistoryItem from './HistoryItem';
 
-function HistoryList({ historyList, onHistoryItemClick }) {
+export default function HistoryList({ historyList, onHistoryItemClick }) {
   return historyList.map((historyItem) => {
     <ul>
       <HistoryItem
@@ -16,5 +16,3 @@ function HistoryList({ historyList, onHistoryItemClick }) {
 HistoryList.propTypes = {
   historyList: PropTypes.array,
 };
-
-export default HistoryList;
