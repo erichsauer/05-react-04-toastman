@@ -6,67 +6,89 @@ export function Controls({
   onInputChange,
   selectedMethod,
   enteredURL,
+  enteredJSON,
 }) {
   return (
     <form onSubmit={onFormSubmit}>
-      <input
-        name="enteredURL"
-        type="url"
-        placeholder="enter url"
-        onChange={onInputChange}
-        value={enteredURL}
-      />
-      <label>
+      <div>
         <input
-          type="radio"
-          value="GET"
-          name="selectedMethod"
+          required={true}
+          name="enteredURL"
+          type="url"
+          placeholder="enter url"
           onChange={onInputChange}
-          checked={selectedMethod === 'GET'}
+          value={enteredURL}
         />
-        ORDER TOAST
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="POST"
-          name="selectedMethod"
-          onChange={onInputChange}
-          checked={selectedMethod === 'POST'}
-        />
-        MAKE TOAST
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="PUT"
-          name="selectedMethod"
-          onChange={onInputChange}
-          checked={selectedMethod === 'PUT'}
-        />
-        ADD BUTTER & JAM
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="PATCH"
-          name="selectedMethod"
-          onChange={onInputChange}
-          checked={selectedMethod === 'PATCH'}
-        />
-        REPLACE TOAST
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="DELETE"
-          name="selectedMethod"
-          onChange={onInputChange}
-          checked={selectedMethod === 'DELETE'}
-        />
-        EAT TOAST
-      </label>
-      <button>TOASTER</button>
+      </div>
+      {enteredURL && (
+        <div>
+          <label>
+            <input
+              type="radio"
+              value="GET"
+              name="selectedMethod"
+              onChange={onInputChange}
+              checked={selectedMethod === 'GET'}
+            />
+            <img src="get.png" alt="fancy toast" />
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="POST"
+              name="selectedMethod"
+              onChange={onInputChange}
+              checked={selectedMethod === 'POST'}
+            />
+            <img src="post.png" alt="make toast" />
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="PUT"
+              name="selectedMethod"
+              onChange={onInputChange}
+              checked={selectedMethod === 'PUT'}
+            />
+            <img src="patch.png" alt="add jam" />
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="PATCH"
+              name="selectedMethod"
+              onChange={onInputChange}
+              checked={selectedMethod === 'PATCH'}
+            />
+            <img src="put.png" alt="new toast" />
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="DELETE"
+              name="selectedMethod"
+              onChange={onInputChange}
+              checked={selectedMethod === 'DELETE'}
+            />
+            <img src="delete.png" alt="burn toast" />
+          </label>
+        </div>
+      )}
+      {selectedMethod && (
+        <>
+          {selectedMethod !== 'GET' && selectedMethod !== 'DELETE' && (
+            <div>
+              <textarea
+                name="enteredJSON"
+                placeholder="enter valid json"
+                onChange={onInputChange}
+                value={enteredJSON}
+              />
+            </div>
+          )}
+          <button>{selectedMethod}</button>
+        </>
+      )}
     </form>
   );
 }

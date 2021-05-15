@@ -2,9 +2,8 @@ import React from 'react';
 
 export default function Spinner() {
   return (
-    <img
-      src="https://media3.giphy.com/media/QuIubPrL8tGE82axmo/giphy.gif?cid=790b7611387b760c84d00eb8cee0e1fc758409d2ebaa3c86&rid=giphy.gif&ct=g"
-      alt="toaster loading spinner"
-    />
+    <article>
+      <img src="https://media4.giphy.com/media/l3q2Okm6SwPwXZqp2/giphy.gif?cid=ecf05e47ww5pd3omcsxf2vu2ni2rw3dx2h21lbk614a8yivs&rid=giphy.gif&ct=g" />
+    </article>
   );
 }

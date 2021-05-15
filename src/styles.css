@@ -1,0 +1,143 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+header > img {
+  width: 300px;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type='url'] {
+  width: 300px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 2rem;
+  border: none;
+  border-bottom: solid 2px #fc9652;
+  background-color: white;
+  transition: 0.5s ease-in-out;
+}
+
+input[type='url']:hover {
+  width: 600px;
+  transition: 0.5s ease-in-out;
+}
+
+textarea {
+  width: 300px;
+  height: 100px;
+  padding: 10px;
+  border: solid 2px #fc9652;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  font-size: 1.5rem;
+  background-color: #fc9652;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background-color: #fa4d31;
+}
+
+input[type='url']::placeholder {
+  color: #fc9652;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+label > img {
+  cursor: pointer;
+  border: solid 3px white;
+  border-radius: 20px;
+}
+
+input[type='radio']:checked + img {
+  border: solid 3px #fa4d31;
+}
+
+input[type='radio'] + img {
+  transition: 0.25s ease-in-out;
+}
+
+input[type='radio']:hover + img {
+  border: solid 3px #fc9652;
+  transition: 0.25s ease-in-out;
+}
+
+form > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 600px;
+  height: 150px;
+}
+
+form > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+article {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+article > img {
+  width: 200px;
+  margin-top: 50px;
+  border-radius: 20px;
+  border: solid 3px #fc9652;
+}
+
+pre {
+  width: 600px;
+  height: 300px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
