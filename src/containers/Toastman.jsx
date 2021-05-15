@@ -31,10 +31,13 @@ export default class Toastman extends Component {
     } catch (e) {
       responseJSON = { Error: `Uh oh! This happened: ${e.message}` };
     }
-
+    setTimeout(() => {
+      this.setState({
+        loading: false,
+      });
+    }, 3000);
     this.setState(({ historyList, enteredURL }) => ({
       responseJSON,
-      loading: false,
       historyList: historyList.includes(enteredURL)
         ? historyList
         : [...historyList, enteredURL],
@@ -51,6 +54,7 @@ export default class Toastman extends Component {
       enteredURL: '',
       enteredJSON: '',
       responseJSON: '',
+      historyList: [],
     });
   };
 

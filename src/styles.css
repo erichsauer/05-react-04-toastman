@@ -177,7 +177,13 @@ p {
   size: 0.5em;
   color: #fc9652;
   margin-right: 5px;
-
+  text-align: center;
   padding: 0px;
   cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+
+p:hover {
+  color: lightgray;
+  transition: 0.25s ease-in-out;
 }

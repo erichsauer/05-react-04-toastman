@@ -5,15 +5,28 @@ import HistoryItem from './HistoryItem';
 export default function HistoryList({ historyList, onHistoryItemClick }) {
   return (
     <footer>
-      {historyList.map((historyItem) => {
-        return (
-          <HistoryItem
-            key={historyItem}
-            historyItem={historyItem}
-            onHistoryItemClick={onHistoryItemClick}
-          />
-        );
-      })}
+      {historyList.length !== 0 ? (
+        historyList.map((historyItem) => {
+          return (
+            <HistoryItem
+              key={historyItem}
+              historyItem={historyItem}
+              onHistoryItemClick={onHistoryItemClick}
+            />
+          );
+        })
+      ) : (
+        <p>
+          Welcome!
+          <br />
+          Enter an API URL to begin.
+          <br /> Click on a history item to edit or remove.
+          <br />
+          The Toastman logo resets the app.
+          <br />
+          Happy fetching!
+        </p>
+      )}
     </footer>
   );
 }
