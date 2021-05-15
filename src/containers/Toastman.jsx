@@ -61,7 +61,15 @@ export default class Toastman extends Component {
   handleHistoryItemDelete = (historyItem) => {
     this.setState(({ historyList }) => ({
       historyList: historyList.filter((item) => item !== historyItem),
+      enteredURL: historyItem,
     }));
+  };
+
+  handleURLClear = () => {
+    this.setState({
+      enteredURL: '',
+      selectedMethod: '',
+    });
   };
 
   render() {
@@ -71,6 +79,7 @@ export default class Toastman extends Component {
       handleReset,
       handleBack,
       handleHistoryItemDelete,
+      handleURLClear,
     } = this;
     const {
       selectedMethod,
@@ -91,6 +100,7 @@ export default class Toastman extends Component {
           <Controls
             onFormSubmit={handleSubmit}
             onInputChange={handleInputChange}
+            onURLClear={handleURLClear}
             selectedMethod={selectedMethod}
             enteredURL={enteredURL}
             enteredJSON={enteredJSON}

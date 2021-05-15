@@ -3,14 +3,19 @@ import PropTypes from 'prop-types';
 import HistoryItem from './HistoryItem';
 
 export default function HistoryList({ historyList, onHistoryItemClick }) {
-  return historyList.map((historyItem) => {
-    <ul>
-      <HistoryItem
-        historyItem={historyItem}
-        onClick={() => onHistoryItemClick(historyItem)}
-      />
-    </ul>;
-  });
+  return (
+    <footer>
+      {historyList.map((historyItem) => {
+        return (
+          <HistoryItem
+            key={historyItem}
+            historyItem={historyItem}
+            onHistoryItemClick={onHistoryItemClick}
+          />
+        );
+      })}
+    </footer>
+  );
 }
 
 HistoryList.propTypes = {

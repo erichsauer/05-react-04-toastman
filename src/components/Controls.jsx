@@ -7,6 +7,7 @@ export default function Controls({
   selectedMethod,
   enteredURL,
   enteredJSON,
+  onURLClear,
 }) {
   return (
     <form onSubmit={onFormSubmit}>
@@ -15,10 +16,11 @@ export default function Controls({
           required={true}
           name="enteredURL"
           type="url"
-          placeholder="enter url"
+          placeholder="http://localtoast..."
           onChange={onInputChange}
           value={enteredURL}
         />
+        {enteredURL && <span onClick={onURLClear}>✕</span>}
       </div>
       {enteredURL && (
         <div>
@@ -45,22 +47,22 @@ export default function Controls({
           <label>
             <input
               type="radio"
-              value="PUT"
-              name="selectedMethod"
-              onChange={onInputChange}
-              checked={selectedMethod === 'PUT'}
-            />
-            <img src="patch.png" alt="add jam" />
-          </label>
-          <label>
-            <input
-              type="radio"
               value="PATCH"
               name="selectedMethod"
               onChange={onInputChange}
               checked={selectedMethod === 'PATCH'}
             />
-            <img src="put.png" alt="new toast" />
+            <img src="patch.png" alt="new toast" />
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="PUT"
+              name="selectedMethod"
+              onChange={onInputChange}
+              checked={selectedMethod === 'PUT'}
+            />
+            <img src="put.png" alt="add jam" />
           </label>
           <label>
             <input
