@@ -8,6 +8,10 @@ export default function Controls({
   enteredURL,
   enteredJSON,
   onURLClear,
+  apiKEY,
+  enteredKey,
+  enteredKeyHeader,
+  onCheckboxToggle,
 }) {
   return (
     <form onSubmit={onFormSubmit} autoComplete="off">
@@ -19,10 +23,27 @@ export default function Controls({
           placeholder="http://localtoast..."
           onChange={onInputChange}
           value={enteredURL}
-          autoComplete="off"
         />
         {enteredURL && <span onClick={onURLClear}>✕</span>}
       </div>
+      {apiKEY && enteredURL && (
+        <div>
+          <input
+            name="enteredKeyHeader"
+            type="text"
+            placeholder="HEADER"
+            onChange={onInputChange}
+            value={enteredKeyHeader}
+          />
+          <input
+            name="enteredKey"
+            type="text"
+            placeholder="KEY"
+            onChange={onInputChange}
+            value={enteredKey}
+          />
+        </div>
+      )}
       {enteredURL && (
         <div>
           <label>
@@ -74,6 +95,15 @@ export default function Controls({
               checked={selectedMethod === 'DELETE'}
             />
             <img src="delete.png" alt="burn toast" />
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="selectedMethod"
+              onChange={onCheckboxToggle}
+              checked={apiKEY}
+            />
+            <img src="key.png" alt="unlock bread box" />
           </label>
         </div>
       )}

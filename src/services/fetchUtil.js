@@ -1,16 +1,12 @@
-export default async function ({ url, method, body }) {
-  let res;
-  if (method === 'GET') {
-    res = await fetch(url, {});
-  } else {
-    res = await fetch(url, {
-      method,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body,
-    });
-  }
-  const json = await res.json();
-  return json;
+export default async function ({ url, method, body, header, key }) {
+  const expectBody = method[0] === 'P';
+  const res = await fetch(url, {
+    method,
+    [expectBody ? 'headers' : null]: {
+      'Content-Type': 'application/json',
+      [header ? header : null]: key ? key : null,
+    },
+    [expectBody ? body : null]: [expectBody ? body : null],
+  });
+  return await res.json();
 }

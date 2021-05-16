@@ -17,7 +17,8 @@ form {
   justify-content: center;
 }
 
-input[type='url'] {
+input[type='url'],
+input[type='text'] {
   width: 400px;
   margin-top: 40px;
   margin-bottom: 10px;
@@ -28,6 +29,16 @@ input[type='url'] {
   background-color: white;
   transition: 0.5s ease-in-out;
   color: lightgray;
+}
+
+input[type='text'] {
+  margin-top: 20px;
+  font-size: 1.25rem;
+  color: black;
+}
+
+input[type='text']:first-child {
+  width: 150px;
 }
 
 input[type='url']:hover {
@@ -52,12 +63,12 @@ input[type='url']:hover + span {
 }
 
 textarea {
-  width: 300px;
+  width: 400px;
   height: 100px;
   padding: 10px;
   border: solid 2px #fc9652;
   border-radius: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
   font-size: 1rem;
 }
 
@@ -84,11 +95,13 @@ button:hover {
   background-color: #fa4d31;
 }
 
-input[type='url']::placeholder {
+input[type='url']::placeholder,
+input[type='text']::placeholder {
   color: lightgray;
 }
 
-input[type='radio'] {
+input[type='radio'],
+input[type='checkbox'] {
   display: none;
 }
 
@@ -96,9 +109,10 @@ label > img {
   cursor: pointer;
   border: solid 3px white;
   border-radius: 20px;
+  margin: 10px;
 }
 
-input[type='radio']:checked + img {
+input:checked + img {
   border: solid 3px #fa4d31;
 }
 
@@ -113,10 +127,8 @@ input[type='radio']:hover + img {
 
 form > div:nth-child(2) {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  width: 600px;
-  height: 150px;
 }
 
 form > div:first-child {

@@ -14,11 +14,20 @@ export default class Toastman extends Component {
     enteredJSON: '',
     responseJSON: '',
     historyList: [],
+    apiKey: false,
+    enteredKey: '',
+    enteredKeyHeader: '',
   };
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const { enteredURL, selectedMethod, enteredJSON } = this.state;
+    const {
+      enteredURL,
+      selectedMethod,
+      enteredJSON,
+      enteredKeyHeader,
+      enteredKey,
+    } = this.state;
     let responseJSON;
     this.setState({ loading: true });
 
@@ -27,6 +36,8 @@ export default class Toastman extends Component {
         url: enteredURL,
         method: selectedMethod,
         body: enteredJSON,
+        header: enteredKeyHeader,
+        key: enteredKey,
       });
     } catch (e) {
       responseJSON = { Error: `Uh oh! This happened: ${e.message}` };
@@ -48,6 +59,12 @@ export default class Toastman extends Component {
     this.setState({ [name]: value });
   };
 
+  handleCheckboxToggle = () => {
+    this.setState(({ apiKey }) => ({
+      apiKey: !apiKey,
+    }));
+  };
+
   handleReset = () => {
     this.setState({
       selectedMethod: '',
@@ -55,6 +72,9 @@ export default class Toastman extends Component {
       enteredJSON: '',
       responseJSON: '',
       historyList: [],
+      apiKey: false,
+      enteredKey: '',
+      enteredKeyHeader,
     });
   };
 
@@ -67,12 +87,20 @@ export default class Toastman extends Component {
       historyList: historyList.filter((item) => item !== historyItem),
       enteredURL: historyItem,
       responseJSON: '',
+      enteredJSON: '',
+      apiKey: false,
+      enteredKey: '',
+      enteredKeyHeader: '',
+      selectedMethod: '',
     }));
   };
 
   handleURLClear = () => {
     this.setState({
       enteredURL: '',
+      apiKey: false,
+      enteredKey: '',
+      enteredKeyHeader: '',
       selectedMethod: '',
     });
   };
@@ -85,6 +113,7 @@ export default class Toastman extends Component {
       handleBack,
       handleHistoryItemDelete,
       handleURLClear,
+      handleCheckboxToggle,
     } = this;
     const {
       selectedMethod,
@@ -93,22 +122,29 @@ export default class Toastman extends Component {
       loading,
       responseJSON,
       historyList,
+      apiKey,
+      enteredKey,
+      enteredKeyHeader,
     } = this.state;
     return (
       <>
         <Header onLogoClick={handleReset} />
         {loading ? (
           <Spinner />
-        ) : responseJSON ? (
+        ) : responseJSON && enteredURL ? (
           <Response responseJSON={responseJSON} onBack={handleBack} />
         ) : (
           <Controls
             onFormSubmit={handleSubmit}
             onInputChange={handleInputChange}
             onURLClear={handleURLClear}
+            onCheckboxToggle={handleCheckboxToggle}
             selectedMethod={selectedMethod}
             enteredURL={enteredURL}
             enteredJSON={enteredJSON}
+            apiKEY={apiKey}
+            enteredKey={enteredKey}
+            enteredKeyHeader={enteredKeyHeader}
           />
         )}
         <HistoryList
