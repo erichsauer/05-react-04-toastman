@@ -10,7 +10,7 @@ export default function Controls({
   onURLClear,
 }) {
   return (
-    <form onSubmit={onFormSubmit}>
+    <form onSubmit={onFormSubmit} autoComplete="off">
       <div>
         <input
           required={true}
@@ -19,6 +19,7 @@ export default function Controls({
           placeholder="http://localtoast..."
           onChange={onInputChange}
           value={enteredURL}
+          autoComplete="off"
         />
         {enteredURL && <span onClick={onURLClear}>✕</span>}
       </div>
