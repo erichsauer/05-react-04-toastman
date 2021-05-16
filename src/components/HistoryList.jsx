@@ -17,7 +17,7 @@ export default function HistoryList({ historyList, onHistoryItemClick }) {
         })
       ) : (
         <p>
-          Welcome!
+          <h3>Welcome!</h3>
           <br />
           Enter an API URL to begin.
           <br /> Click on a history item to edit or remove.

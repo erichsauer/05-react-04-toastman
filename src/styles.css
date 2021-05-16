@@ -188,3 +188,8 @@ p:hover {
   color: #fc9652;
   transition: 0.25s ease-in-out;
 }
+
+h3 {
+  margin-top: 10px;
+  margin-bottom: -20px;
+}
