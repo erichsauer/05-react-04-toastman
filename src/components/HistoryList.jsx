@@ -17,9 +17,9 @@ export default function HistoryList({ historyList, onHistoryItemClick }) {
         })
       ) : (
         <p>
-          <h3>Welcome!</h3>
+          <h2>Welcome!</h2>
           <br />
-          Enter an API URL to begin.
+          Enter a full API URL to begin.
           <br /> Click on a history item to edit or remove.
           <br />
           The Toastman logo resets the app.

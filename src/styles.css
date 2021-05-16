@@ -189,7 +189,8 @@ p:hover {
   transition: 0.25s ease-in-out;
 }
 
-h3 {
+h2 {
   margin-top: 10px;
-  margin-bottom: -20px;
+  margin-bottom: -10px;
+  color: #fc9652;
 }
