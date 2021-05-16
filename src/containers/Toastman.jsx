@@ -66,6 +66,7 @@ export default class Toastman extends Component {
     this.setState(({ historyList }) => ({
       historyList: historyList.filter((item) => item !== historyItem),
       enteredURL: historyItem,
+      responseJSON: '',
     }));
   };
 

@@ -175,7 +175,7 @@ footer {
 p {
   font-family: Arial, Helvetica, sans-serif;
   size: 0.5em;
-  color: #fc9652;
+  color: lightgray;
   margin: 5px;
   text-align: center;
   padding: 0px;
@@ -185,6 +185,6 @@ p {
 }
 
 p:hover {
-  color: lightgray;
+  color: #fc9652;
   transition: 0.25s ease-in-out;
 }
