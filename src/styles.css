@@ -184,7 +184,8 @@ footer {
   margin-top: 10px;
 }
 
-p {
+p,
+h2 {
   font-family: Arial, Helvetica, sans-serif;
   size: 0.5em;
   color: lightgray;
@@ -202,7 +203,7 @@ p:hover {
 }
 
 h2 {
-  margin-top: 10px;
-  margin-bottom: -10px;
+  margin-top: 15px;
+  margin-bottom: 5px;
   color: #fc9652;
 }

@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import HistoryList from '../components/HistoryList';
 import Response from '../components/Response';
 import Spinner from '../components/Spinner';
+import Welcome from '../components/Welcome';
 import fetchUtil from '../services/fetchUtil';
 
 export default class Toastman extends Component {
@@ -74,7 +75,7 @@ export default class Toastman extends Component {
       historyList: [],
       apiKey: false,
       enteredKey: '',
-      enteredKeyHeader,
+      enteredKeyHeader: '',
     });
   };
 
@@ -147,10 +148,14 @@ export default class Toastman extends Component {
             enteredKeyHeader={enteredKeyHeader}
           />
         )}
-        <HistoryList
-          historyList={historyList}
-          onHistoryItemClick={handleHistoryItemDelete}
-        />
+        {historyList.length === 0 ? (
+          <Welcome />
+        ) : (
+          <HistoryList
+            historyList={historyList}
+            onHistoryItemClick={handleHistoryItemDelete}
+          />
+        )}
       </>
     );
   }
