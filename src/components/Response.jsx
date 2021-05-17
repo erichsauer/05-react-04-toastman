@@ -17,7 +17,7 @@ function Response({ responseJSON, onBack }) {
 }
 
 Response.propTypes = {
-  responseJSON: PropTypes.array || PropTypes.object,
+  responseJSON: PropTypes.object,
 };
 
 export default Response;
