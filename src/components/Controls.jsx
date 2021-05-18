@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 export default function Controls({
   onFormSubmit,
   onInputChange,
+  onURLClear,
+  onCheckboxToggle,
   selectedMethod,
   enteredURL,
   enteredJSON,
-  onURLClear,
-  apiKEY,
+  apiKey,
   enteredKey,
   enteredKeyHeader,
-  onCheckboxToggle,
 }) {
   return (
     <form onSubmit={onFormSubmit} autoComplete="off">
@@ -20,13 +20,13 @@ export default function Controls({
           required={true}
           name="enteredURL"
           type="url"
-          placeholder="http://localtoast..."
+          placeholder="https://localtoast..."
           onChange={onInputChange}
           value={enteredURL}
         />
         {enteredURL && <span onClick={onURLClear}>✕</span>}
       </div>
-      {apiKEY && enteredURL && (
+      {apiKey && enteredURL && (
         <div>
           <input
             name="enteredKeyHeader"
@@ -101,7 +101,7 @@ export default function Controls({
               type="checkbox"
               name="selectedMethod"
               onChange={onCheckboxToggle}
-              checked={apiKEY}
+              checked={apiKey}
             />
             <img src="key.png" alt="unlock bread box" />
           </label>
@@ -119,7 +119,7 @@ export default function Controls({
               />
             </div>
           )}
-          <button>{selectedMethod}</button>
+          <button name={selectedMethod}>{selectedMethod}</button>
         </>
       )}
     </form>

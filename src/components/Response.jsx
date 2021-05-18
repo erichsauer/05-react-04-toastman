@@ -8,7 +8,7 @@ function Response({ responseJSON, onBack }) {
     <main>
       <JSONPretty
         id="json-pretty"
-        data={responseJSON}
+        data={responseJSON.json}
         theme={JSONPrettyTheme}
       ></JSONPretty>
       <button onClick={onBack}>GO BACK</button>
@@ -18,6 +18,7 @@ function Response({ responseJSON, onBack }) {
 
 Response.propTypes = {
   responseJSON: PropTypes.object,
+  onBack: PropTypes.func.isRequired,
 };
 
 export default Response;

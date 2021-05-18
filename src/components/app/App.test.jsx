@@ -1,14 +1,47 @@
 import React from 'react';
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import App from './App';
+import userEvent from '@testing-library/user-event';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+
+const server = setupServer(
+  rest.get('http://futuramaapi.herokuapp.com/api/quotes/1', (req, res, ctx) => {
+    return res(
+      ctx.json([
+        {
+          character: 'Leela',
+          quote:
+            'You say that those brains are making everyone on Earth stupid. Oh... stupider.',
+          image:
+            'https://res.cloudinary.com/dzxqhkyqd/image/upload/v1554904145/leela.png',
+        },
+      ])
+    );
+  })
+);
 
 describe('Toastman component', () => {
-  afterEach(() => cleanup());
+  beforeAll(() => server.listen());
+  afterAll(() => server.close());
+
   it('should be able to make a get/post/put/patch/delete request to a user-specified url and send along user-entered json', async () => {
     // render(<App />);
     // screen.getByAltText('toastman');
-    // const url = screen.getAllByPlaceholderText('enter url');
-    // screen.getAllByRole('radio');
-    // cleanup(<App />);
+    // const url = screen.getByPlaceholderText('https://localtoast...');
+    // userEvent.type(url, 'https://futuramaapi.herokuapp.com/api/quotes/1');
+    // await screen.findByDisplayValue('GET', { name: 'selectedMethod' });
+    // const method = await screen.findByDisplayValue('GET');
+    // userEvent.click(method);
+    // const button = await screen.findByRole('button', { name: 'GET' });
+    // userEvent.click(button);
+    // return setTimeout(async () => {
+    //   await waitFor(async () => {
+    //     const container = await screen.findByText(
+    //       'You say that those brains are making everyone on Earth stupid. Oh... stupider.'
+    //     );
+    //     expect(container).toMatchSnapshot();
+    //   }, 3000);
+    // });
   });
 });

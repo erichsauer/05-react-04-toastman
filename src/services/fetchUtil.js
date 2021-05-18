@@ -25,5 +25,5 @@ export default async function ({ url, method, jsonBody, header, key }) {
     });
   }
 
-  return await res.json();
+  return { json: await res.json() };
 }
