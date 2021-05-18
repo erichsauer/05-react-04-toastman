@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toastman component should be able to make a get/post/put/patch/delete request to a user-specified url and send along user-entered json 1`] = `
+<span
+  class="__json-string__"
+  style="color:#7fd6fa;"
+>
+  "You say that those brains are making everyone on Earth stupid. Oh... stupider."
+</span>
+`;

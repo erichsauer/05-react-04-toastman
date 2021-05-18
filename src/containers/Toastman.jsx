@@ -44,12 +44,8 @@ export default class Toastman extends Component {
     } catch (e) {
       responseJSON = { Error: `Uh oh! This happened: ${e.message}` };
     }
-    setTimeout(() => {
-      this.setState({
-        loading: false,
-      });
-    }, 3000);
     this.setState(({ historyList, enteredURL }) => ({
+      loading: false,
       responseJSON,
       historyList: historyList.includes(enteredURL)
         ? historyList
