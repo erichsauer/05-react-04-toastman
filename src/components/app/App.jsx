@@ -1,5 +1,10 @@
 import React from 'react';
+import Toastman from '../../containers/Toastman';
 
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <>
+      <Toastman />
+    </>
+  );
 }
