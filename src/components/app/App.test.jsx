@@ -24,6 +24,8 @@ const server = setupServer(
   )
 );
 
+jest.useFakeTimers();
+
 describe('Toastman component', () => {
   beforeAll(() => server.listen());
   afterAll(() => server.close());
