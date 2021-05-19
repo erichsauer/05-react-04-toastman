@@ -43,6 +43,14 @@ describe('Toastman component', () => {
     const button = await screen.findByRole('button', { name: 'GET' });
     userEvent.click(button);
 
+    const timeout = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 3000);
+    });
+
+    await timeout;
+
     return waitFor(() => {
       const container = screen.getByText(
         'You say that those brains are making everyone on Earth stupid. Oh... stupider.',
