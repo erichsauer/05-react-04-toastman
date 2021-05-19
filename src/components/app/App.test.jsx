@@ -24,6 +24,8 @@ const server = setupServer(
   )
 );
 
+jest.useFakeTimers();
+
 describe('Toastman component', () => {
   beforeAll(() => server.listen());
   afterAll(() => server.close());
@@ -42,14 +44,6 @@ describe('Toastman component', () => {
 
     const button = await screen.findByRole('button', { name: 'GET' });
     userEvent.click(button);
-
-    const timeout = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve();
-      }, 3000);
-    });
-
-    await timeout;
 
     return waitFor(() => {
       const container = screen.getByText(
